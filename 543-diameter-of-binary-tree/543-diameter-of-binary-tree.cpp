@@ -15,17 +15,16 @@ public:
         if(root==NULL)
             return 0;
         int h1=h(root->left);
-                int h2=h(root->right);
-return max(h1,h2)+1;
+        int h2=h(root->right);
+        return max(h1,h2)+1;
     }
 
-    int diameterOfBinaryTree(TreeNode* root) {
+    int diameterOfBinaryTree(TreeNode* root){
         if(root==NULL)
             return 0;
         int d=h(root->left)+h(root->right);
         int d1=diameterOfBinaryTree(root->left);
         int d2=diameterOfBinaryTree(root->right);
-        
         return max(d,max(d1,d2));
     }
 };
