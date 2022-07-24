@@ -13,24 +13,30 @@ class Solution {
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
         
-        stack<TreeNode*>st;
-        st.push(root);
+//         stack<TreeNode*>st;
+//         st.push(root);
         
-        while(!st.empty() and root!=NULL){
-            TreeNode*cur=st.top();
-            st.pop();
-            if(cur->left==NULL and cur->right==NULL and cur->val==targetSum)
-                return true;
-            if(cur->left){
-                cur->left->val=cur->val+cur->left->val;
-                st.push(cur->left);
-            }
-            if(cur->right){
-                cur->right->val=cur->val+cur->right->val;
-                st.push(cur->right);
-            }
-        }
+//         while(!st.empty() and root!=NULL){
+//             TreeNode*cur=st.top();
+//             st.pop();
+//             if(cur->left==NULL and cur->right==NULL and cur->val==targetSum)
+//                 return true;
+//             if(cur->left){
+//                 cur->left->val=cur->val+cur->left->val;
+//                 st.push(cur->left);
+//             }
+//             if(cur->right){
+//                 cur->right->val=cur->val+cur->right->val;
+//                 st.push(cur->right);
+//             }
+//         }
         
-        return false;
+//         return false;
+        
+        if(root==NULL)
+            return false;
+        if(root->left==NULL and root->right==NULL and targetSum-root->val==0)
+            return true;
+        return hasPathSum(root->left,targetSum-root->val) or hasPathSum(root->right,targetSum-root->val);
     }
 };
