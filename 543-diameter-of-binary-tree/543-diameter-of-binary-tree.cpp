@@ -27,23 +27,34 @@ public:
 //         int d2=diameterOfBinaryTree(root->right);
 //         return max(d,max(d1,d2));
 //     }
-    int f=0;
-    int help(TreeNode* root){
-        if(root==NULL){
-            return 0;
-        }
-        int l=help(root->left);
-        int r=help(root->right);
-        f=max(f,1+l+r);
+//     int f=0;
+//     int help(TreeNode* root){
+//         if(root==NULL){
+//             return 0;
+//         }
+//         int l=help(root->left);
+//         int r=help(root->right);
+//         f=max(f,1+l+r);
         
-        return 1+max(l,r);
+//         return 1+max(l,r);
         
 
+//     }
+    int solve(TreeNode *root,int &res){
+        if(root==NULL)
+            return 0;
+        int l=solve(root->left,res);
+        int r=solve(root->right,res);
+        int temp=1+max(l,r);
+        int ans=max(temp,1+l+r);
+        res=max(res,ans);
+        return temp;
     }
     
     int diameterOfBinaryTree(TreeNode* root){
-        int a=help(root);
+        int res=INT_MIN;
+        solve(root,res);
         
-        return f-1;
+        return res-1;
     }
 };
