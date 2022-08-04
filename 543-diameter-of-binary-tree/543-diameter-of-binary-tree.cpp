@@ -46,8 +46,8 @@ public:
         int l=solve(root->left,res);
         int r=solve(root->right,res);
         int temp=1+max(l,r);
-        int ans=max(temp,1+l+r);
-        res=max(res,ans);
+        // int ans=max(temp,1+l+r);
+        res=max(res,1+l+r);
         return temp;
     }
     
