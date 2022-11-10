@@ -171,7 +171,7 @@ vector<int> ans;
                
                size--;
                
-               count++;
+               count=1;
            }
        }
        
