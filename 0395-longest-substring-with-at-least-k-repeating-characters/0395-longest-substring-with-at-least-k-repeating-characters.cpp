@@ -13,16 +13,16 @@ int longestSubstring(string s, int k) {
         int i=0;
         int j=0;
         int current_unique=0;
-        unordered_map<int,int>mp;
+        unordered_map<char,int>mp;
         int count=0;
         int result=0;
         while(j<s.size())
         {
             // Pre-Calculation
-            mp[s[j]-'a']++;
-            if(mp[s[j]-'a']==1)
+            mp[s[j]]++;
+            if(mp[s[j]]==1)
                 current_unique++;
-            if(mp[s[j]-'a']==k)
+            if(mp[s[j]]==k)
                 count++;
             
             // Play With Condition
@@ -33,10 +33,10 @@ int longestSubstring(string s, int k) {
                 while(current_unique>total_unique)
                 {
                     // remove calculation for i
-                    mp[s[i]-'a']--;
-                    if(mp[s[i]-'a']==0)
+                    mp[s[i]]--;
+                    if(mp[s[i]]==0)
                         current_unique--;
-                    if(mp[s[i]-'a']==k-1)
+                    if(mp[s[i]]==k-1)
                         count--;
                     i++;
                 }
