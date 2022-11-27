@@ -26,7 +26,7 @@ public:
         while(count>=k){
             cur=pre->next;
             nex=cur->next;
-            for(int i=1;i<k;i++){
+            for(int i=1;i<=k-1;i++){
                 cur->next=nex->next;
                 nex->next=pre->next;
                 pre->next=nex;
