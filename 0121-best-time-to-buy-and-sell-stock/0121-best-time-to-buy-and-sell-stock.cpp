@@ -17,6 +17,7 @@ public:
             if(prices[i]<min){
                 min=prices[i];
             }
+            cout<<mp;
             mp=max(mp,prices[i]-min);
             
         }
