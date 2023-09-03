@@ -33,17 +33,16 @@ public:
     
     
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        if(p==NULL and q==NULL)
-            return true;
-        if(p==NULL or q==NULL)
-            return false;
-        return (p->val==q->val and isSameTree(p->left,q->left) and isSameTree(p->right,q->right));
-//         vector<int>a,b,c,d;
-//         // vector<int>b;
-//         inorder(p,a);
-//         inorder(q,b);
-//         preorder(p,c);
-//         preorder(q,d);
+        // if(p==NULL and q==NULL)
+        //     return true;
+        // if(p==NULL or q==NULL)
+        //     return false;
+        // return (p->val==q->val and isSameTree(p->left,q->left) and isSameTree(p->right,q->right));
+        vector<int>a,b,c,d;
+        inorder(p,a);
+        inorder(q,b);
+        preorder(p,c);
+        preorder(q,d);
 //         // if(a.size()!=b.size())
 //         //     return false;
 //         // for(int i=0;i<a.size();i++){
@@ -53,8 +52,8 @@ public:
         
 //         // return true;       
         
-//         if(a==b and c==d)
-//             return true;
-//         return false;
+        if(a==b and c==d)
+            return true;
+        return false;
     }
 };
